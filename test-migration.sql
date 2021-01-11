@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS transactions (
     id INT,
     data DATE,
     description VARCHAR(255),
-    amount DECIMAL(10,2),
+    amount DECIMAL(10,2)
 );
 
 CREATE TABLE IF NOT EXISTS items (
@@ -19,16 +19,16 @@ CREATE TABLE IF NOT EXISTS items (
     -- HERE IS ANOTHER
 );
 
-CREATE TABLE user(
+CREATE TABLE IF NOT EXISTS user(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     is_admin TINYINT NOT NULL DEFAULT 0,
-    ZIPCODE CHAR(15) DEFAULT VALUE OF '12345',
+    ZIPCODE CHAR(15) DEFAULT '12345',
     PRIMARY KEY(id)
 );
 
---ALTER TABLE user AUTO_INCREMENT = 1000;
 
-CREATE TABLE blog_post IF NOT EXISTS(
+
+CREATE TABLE IF NOT EXISTS blog_post(
     title VARCHAR(100) NOT NULL,
     body TEXT
 );
@@ -44,6 +44,16 @@ CREATE TABLE IF NOT EXISTS contacts(
     PRIMARY KEY(id)
 );
 
-DESCRIBE transaction;
+-- DESCRIBE transaction;
 
-DROP TABLE transaction;
+-- DROP TABLE transaction;
+
+CREATE TABLE IF NOT EXISTS books (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    author_first_name VARCHAR(100) NOT NULL,
+    author_last_name VARCHAR(100),
+    year CHAR(4),
+    synopsis TEXT,
+    PRIMARY KEY(id)
+    );
