@@ -1,4 +1,4 @@
-USE codeup_test_db();
+USE codeup_test_db;
 
 SELECT 'Delete Albums released after 1991' AS 'info';
 DELETE FROM albums

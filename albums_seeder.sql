@@ -1,5 +1,5 @@
 USE codeup_test_db;
--- TRUNCATE albums;
+TRUNCATE albums;
 
 -- INSERT INTO albums(artist, name, release_date) VALUE ('Ippo', 'Weight of my pride', 2005)
 -- INSERT INTO albums(artist, name, release_date) VALUE ('Niko', 'Night of Fire', 2019)

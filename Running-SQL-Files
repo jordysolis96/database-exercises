@@ -1,0 +1,9 @@
+-- RUNNING SQL FILES --
+
+To run from mac environment:
+
+    mysql -u root -p -t < filename.sql
+
+To run sql files from mysql client:
+
+source filepath/filename.sql;
