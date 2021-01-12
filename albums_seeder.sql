@@ -1,20 +1,21 @@
 USE codeup_test_db;
+-- TRUNCATE albums;
 
-INSERT INTO albums(artist, name, release_date) VALUE ('Ippo', 'Weight of my pride', 2005)
-INSERT INTO albums(artist, name, release_date) VALUE ('Niko', 'Night of Fire', 2019)
-INSERT INTO albums(artist, name, release_date) VALUE ('Dave Simon', 'I Need Your Love', 2002)
-INSERT INTO albums(artist, name, release_date) VALUE ('Daft Punk', 'Something About US', 2001)
-INSERT INTO albums(artist, name, release_date) VALUE ('Dirt', 'Bones', 2013)
+-- INSERT INTO albums(artist, name, release_date) VALUE ('Ippo', 'Weight of my pride', 2005)
+-- INSERT INTO albums(artist, name, release_date) VALUE ('Niko', 'Night of Fire', 2019)
+-- INSERT INTO albums(artist, name, release_date) VALUE ('Dave Simon', 'I Need Your Love', 2002)
+-- INSERT INTO albums(artist, name, release_date) VALUE ('Daft Punk', 'Something About US', 2001)
+-- INSERT INTO albums(artist, name, release_date) VALUE ('Dirt', 'Bones', 2013)
+--
+-- INSERT INTO albums(artist, name, release_date)
+-- VALUE('Ramirez', 'Hunnids', 2020)
+-- ('Joey Bada$$', 'Survival Tactics', 2018)
+-- ('Kanye West', 'On God', 2019)
+-- ('Cuco', 'Drown', 2018)
+-- ('Mac DeMarco', 'Chamber of Reflection', 2014)
 
-INSERT INTO albums(artist, name, release_date)
-VALUE('Ramirez', 'Hunnids', 2020)
-('Joey Bada$$', 'Survival Tactics', 2018)
-('Kanye West', 'On God', 2019)
-('Cuco', 'Drown', 2018)
-('Mac DeMarco', 'Chamber of Reflection', 2014)
-
-INSERT INTO albums(artist, name, release_date, sales, genre)
-    VALUE('Michael Jackson', 'Thriller', 1982, 'Pop, Rock, R&B', 47.3),
+INSERT INTO albums(artist, name, release_date, genre, sales)
+    VALUES('Michael Jackson', 'Thriller', 1982, 'Pop, Rock, R&B', 47.3),
 ('AC/DC', 'Back in Black', 1980, 'Hard rock', 26.1),
 ('Pink Floyd', 'The Dark Side of the Moon', 1973, 'Progressive rock', 24.2),
 ('Meat Loaf', 'Bat Out of Hell', 1977, 'Hard rock, Progressive rock', 21.5),
