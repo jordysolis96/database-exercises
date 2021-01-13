@@ -6,10 +6,10 @@ FROM employees;
 SELECT CONCAT(first_name, ' ', last_name) AS 'ALL employees'
 FROM employees;
 
-SELECT first_name, last_name
-FROM employees
-WHERE last_name LIKE 'A%a'
-AND NOT LIKE '%q%';
+# SELECT first_name, last_name
+# FROM employees
+# WHERE last_name LIKE 'A%a'
+# AND NOT LIKE '%q%';
 
 # returns result in DATE-TIME
 SELECT NOW();
