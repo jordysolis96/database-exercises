@@ -16,3 +16,5 @@ SELECT COUNT(first_name), gender
 FROM employees
 WHERE (first_name = 'Irena'OR first_name = 'Vidya' OR first_name = 'Maya')
 GROUP BY gender;
+
+
