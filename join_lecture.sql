@@ -1,52 +1,52 @@
 USE jupiter_db;
 
-CREATE TABLE roles (`codeup_test_db@localhost`
-                        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-                    name VARCHAR(100) NOT NULL,
-                    PRIMARY KEY (id)
-);
+# CREATE TABLE roles (`codeup_test_db@localhost`
+#                         id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+#                     name VARCHAR(100) NOT NULL,
+#                     PRIMARY KEY (id)
+# );
 
-CREATE TABLE users (
-                       id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-                       name VARCHAR(100) NOT NULL,
-                       email VARCHAR(100) NOT NULL,
-                       role_id INT UNSIGNED DEFAULT NULL,
-                       PRIMARY KEY (id),
-                       FOREIGN KEY (role_id) REFERENCES roles (id)
-);
+# CREATE TABLE users (
+#                        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+#                        name VARCHAR(100) NOT NULL,
+#                        email VARCHAR(100) NOT NULL,
+#                        role_id INT UNSIGNED DEFAULT NULL,
+#                        PRIMARY KEY (id),
+#                        FOREIGN KEY (role_id) REFERENCES roles (id)
+# );
 
 SHOW TABLES;
 
-INSERT INTO roles (name) VALUES ('admin');
-INSERT INTO roles (name) VALUES ('author');
-INSERT INTO roles (name) VALUES ('reviewer');
-INSERT INTO roles (name) VALUES ('commenter');
+# INSERT INTO roles (name) VALUES ('admin');
+# INSERT INTO roles (name) VALUES ('author');
+# INSERT INTO roles (name) VALUES ('reviewer');
+# INSERT INTO roles (name) VALUES ('commenter');
 
-INSERT INTO users (name, email, role_id) VALUES
-('bob', 'bob@example.com', 1),
-('joe', 'joe@example.com', 2),
-('sally', 'sally@example.com', 3),
-('adam', 'adam@example.com', 3),
-('jane', 'jane@example.com', null),
-('mike', 'mike@example.com', null);
-
-SELECT * FROM roles;
-SELECT * FROM users;
+# INSERT INTO users (name, email, role_id) VALUES
+# ('bob', 'bob@example.com', 1),
+# ('joe', 'joe@example.com', 2),
+# ('sally', 'sally@example.com', 3),
+# ('adam', 'adam@example.com', 3),
+# ('jane', 'jane@example.com', null),
+# ('mike', 'mike@example.com', null);
+#
+# SELECT * FROM roles;
+# SELECT * FROM users;
 
 # INNER JOIN/ this is going to return records that have values for user_name AND role_name
-SELECT users.name as user_name, roles.name as role_name
-FROM users
-         JOIN roles ON users.role_id = roles.id;
-
-#LEFT JOIN
-SELECT users.name AS user_name, roles.name AS role_name
-FROM users
-         LEFT JOIN roles ON users.role_id = roles.id;
-
-#RIGHT JOIN
-SELECT users.name AS user_name, roles.name AS role_name
-FROM users
-         RIGHT JOIN roles ON users.role_id = roles.id;
+# SELECT users.name as user_name, roles.name as role_name
+# FROM users
+#          JOIN roles ON users.role_id = roles.id;
+#
+# #LEFT JOIN
+# SELECT users.name AS user_name, roles.name AS role_name
+# FROM users
+#          LEFT JOIN roles ON users.role_id = roles.id;
+#
+# #RIGHT JOIN
+# SELECT users.name AS user_name, roles.name AS role_name
+# FROM users
+#          RIGHT JOIN roles ON users.role_id = roles.id;
 
 # ============================== JOINS
 
@@ -113,3 +113,33 @@ GROUP BY owners.address;
 
 
 # ============================== BASIC JOINS WITH ALIASES
+USE employees;
+
+SELECT * FROM employees;
+SELECT * FROM titles;
+
+# output all current employee names and their current titles
+SELECT CONCAT(employees.first_name, ' ', employees.last_name), titles.title
+FROM employees
+JOIN titles ON titles.emp_no = employees.emp_no
+WHERE titles.to_date > NOW()
+ORDER BY titles.title;
+
+DESCRIBE titles;
+
+# using aliases
+SELECT CONCAT(e.first_name, ' ', e.last_name), t.title
+FROM employees AS e
+JOIN titles AS t
+ON e.emp_no = t.emp_no
+WHERE t.to_date > NOW()
+ORDER BY t.title;
+
+# output none and current department for employee number 10001
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS full_name, d.dept_name
+FROM employees AS e
+JOIN dept_emp AS de
+    ON e.emp_no = de.emp_no
+JOIN departments AS d
+    on de.dept_no = d.dept_no
+WHERE de.to_date = '9999-01-01' AND e.emp_no = 10001;
