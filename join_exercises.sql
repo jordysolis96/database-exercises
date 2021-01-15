@@ -8,6 +8,8 @@ FROM employees as e
               ON d.dept_no = de.dept_no
 WHERE de.to_date = '9999-01-01' AND e.emp_no = 10001;
 
+
+
 SELECT d.dept_name AS 'Department Name',
        CONCAT(e.first_name,'', e.last_name) AS 'Department Manager'
 FROM employees AS e
@@ -17,6 +19,8 @@ WHERE dm.to_date = '9999-01-01'
   AND e.gender = 'f'
 ORDER BY d.dept_name;
 
+
+
 SELECT t.title AS Title, COUNT(t.emp_no) AS Count
 FROM titles AS t
          JOIN dept_emp AS de ON de.emp_no = t.emp_no
@@ -25,6 +29,8 @@ WHERE de.dept_no = 'd009'
   AND t.to_date = '9999-01-01'
   AND de.to_date = '9999-01-01'
 GROUP BY t.title;
+
+
 
 SELECT d.dept_name, CONCAT(e.first_name, ' ', e.last_name), s.salary
 FROM dept_manager AS dm
